@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diabetes Prediction App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f5f7;
+            text-align: center;
+            margin-top: 30px;
+        }
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input {
+            margin: 8px;
+            padding: 8px;
+            width: 200px;
+        }
+        button {
+            background-color: #0078D7;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #005fa3;
+        }
+        h2 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h2>🩺 Diabetes Prediction</h2>
+    <form action="/predict" method="post">
+        <input type="number" name="Pregnancies" placeholder="Pregnancies" step="1" required><br>
+        <input type="number" name="Glucose" placeholder="Glucose" step="any" required><br>
+        <input type="number" name="BloodPressure" placeholder="Blood Pressure" step="any" required><br>
+        <input type="number" name="SkinThickness" placeholder="Skin Thickness" step="any" required><br>
+        <input type="number" name="Insulin" placeholder="Insulin" step="any" required><br>
+        <input type="number" name="BMI" placeholder="BMI" step="any" required><br>
+        <input type="number" name="DiabetesPedigreeFunction" placeholder="Diabetes Pedigree Function" step="any" required><br>
+        <input type="number" name="Age" placeholder="Age" step="1" required><br><br>
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction_text %}
+        <h3>{{ prediction_text }}</h3>
+    {% endif %}
+</body>
+</html>
